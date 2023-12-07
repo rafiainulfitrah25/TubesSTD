@@ -23,27 +23,7 @@ void dealokasiRelasi_4(adr_relasi &P) {
 }
 
 
-/*
-void insertFirst_1301223470(List &L, address P) {
-    if (first(L) == NULL) {
-        first(L) = P;
-        last(L) = P;
-    } else {
-        next(P) = first(L);
-        next(last(L)) = P;
-        first(L) = P;
-    }
-}
-*/
-/*
-void insertAfter_1301223470(List &L, address prec, address P) {
-    next(P) = next(prec);
-    next(prec) = P;
-    if (prec == last(L)) {
-        last(L) = P;
-    }
-}
-*/
+
 
 
 void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi P,string kode_kereta, string kode_stasiun) {
@@ -64,21 +44,9 @@ void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi 
     relasi_parent(P) = x;
 }
 
-/*
-address findElm_1301223470(List L, infotype x) {
-    if (first(L) == NULL) {
-        return NULL;
-    }
-    address P = first(L);
-    do {
-        if (info(P) == x) {
-            return P;
-        }
-        P = next(P);
-    } while (P != first(L));
-    return NULL;
-}
-*/
+
+void searchKereta_4(list_child LC,string id_kereta)
+void hubungkan_4()
 
 void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P) {
     if (firstr(L) == NULL) {
