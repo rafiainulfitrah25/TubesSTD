@@ -45,6 +45,7 @@ void insertAfter_1301223470(List &L, address prec, address P) {
 }
 */
 
+
 void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi P,string kode_kereta, string kode_stasiun) {
     if (firstr(L) == NULL) {
         firstr(L) = P;

@@ -8,10 +8,11 @@
 using namespace std;
 
 struct datastasiun {
+    string id_stasiun;
     string nama;
-    string kode_stasiun;
+    string kabkot;
     string provinsi;
-    string traffic_status;
+    int traffic_status;
 };
 
 typedef datastasiun infotype_parent;
