@@ -12,7 +12,7 @@ using namespace std;
 struct datakereta {
     string id_kereta;
     string nama_kereta;
-    string asal_perjalanan
+    string asal_perjalanan;
     string tujuan_perjalanan;
     int kapasitas_kereta;
 };
