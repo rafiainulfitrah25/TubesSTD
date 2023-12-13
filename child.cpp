@@ -24,18 +24,6 @@ adr_child createNewElmtChild_4(infotype_child X){
     return P;
 };
 
-void showChild_4(list_child L){
-    adr_child q;
-    q = firstch(L);
-    while (q != nextch(lastch(L))){
-        cout << infoch(q).nama_kereta <<"- ";
-        cout << infoch(q).relasi_perjalanan <<", ";
-        q = nextch(q);
-    }
-    cout <<endl;
-
-}
-
 void insertFirstChild_4(list_child &L, adr_child P){
     if (isEmptyChild_4(L) == true) {
         firstch(L) = P;
@@ -97,5 +85,20 @@ void deleteLastChild_4(list_child &L,adr_child &P){
         lastch(L)= prevch(P);
         nextch(lastch(L))= NULL;
         prevch(P) = NULL;
+    }
+}
+
+void showChild_4(list_child L){
+    adr_child x;
+    x = firstch(L);
+    while (x != NULL) {
+        cout <<"---data kereta---"<<endl;
+        cout<< infoch(x).id_kereta<<endl;
+        cout<< infoch(x).nama_kereta<<endl;
+        cout<< infoch(x).asal_perjalanan<<endl;
+        cout<< infoch(x).tujuan_perjalanan<<endl;
+        cout<< infoch(x).pemberhentian<<endl;
+        cout<<"-------------------"<<endl;
+        x = nextch(x);
     }
 }

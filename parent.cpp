@@ -27,23 +27,21 @@ void InsertLastParent_4(list_parent &L, adr_parent P){
     }
 };
 
-void showLastParent_4(list_parent L,int K){
-    adr_parent P = Firstpr(L);
-    int totlist = 0;
-    int index;
-    while (nextpr(P) != NULL) {
-        totlist++;
-        P = nextpr(P);
+void showParent_4(list_parent L){
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL) {
+        cout <<"---data all stasiun---"<<endl;
+        cout<< infopr(x).id_stasiun<<endl;
+        cout<< infopr(x).nama<<endl;
+        cout<< infopr(x).kabkot<<endl;
+        cout<< infopr(x).provinsi<<endl;
+        cout<< infopr(x).traffic_status<<endl;
+        cout<<"-------------------"<<endl;
+        x = nextpr(x);
     }
-    index = totlist-(K-1);
-    P = Firstpr(L);
-    for (int i = 1; i <= index; i++) {
-            P= nextpr(P);
-    }
-    cout<<infopr(P).nama<<endl;
-    cout<<infopr(P).kode_stasiun<<endl;
-    cout<<infopr(P).provinsi<<endl;
-};
+}
+
 
 void deletefirstParent_4(list_parent &L,adr_parent &P){
     if (Firstpr(L)!= NULL){

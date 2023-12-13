@@ -14,7 +14,7 @@ struct datakereta {
     string nama_kereta;
     string asal_perjalanan;
     string tujuan_perjalanan;
-    int kapasitas_kereta;
+    int pemberhentian;
 };
 
 typedef datakereta infotype_child;
@@ -33,12 +33,11 @@ struct list_child {
 bool isEmptyChild_4(list_child L);
 void createListChild_4(list_child &L);
 adr_child createNewElmtChild_4(infotype_child X);
-void showChild_4(list_child L);
 void insertFirstChild_4(list_child &L, adr_child P);
 void insertAfterChild_4( list_child &L,adr_child prec, adr_child P);
 void insertLastChild_4(list_child &L, adr_child P);
 void deletefirstChild_4(list_child &L,adr_child &P);
 void DeleteAfterChild_4(list_child &L,adr_child prec, adr_child &P);
 void deleteLastChild_4(list_child &L,adr_child &P);
-
+void showChild_4(list_child L);
 #endif // CHILD_H_INCLUDED

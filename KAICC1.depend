@@ -2,27 +2,27 @@
 1584205420 source:c:\c++\kaicc1\main.cpp
 	<iostream>
 
-1701860007 source:c:\c++\kaicc1\child.cpp
+1702428707 source:c:\c++\kaicc1\child.cpp
 	<iostream>
 	"child.h"
 
-1702265142 c:\c++\kaicc1\child.h
+1702428707 c:\c++\kaicc1\child.h
 	<iostream>
 
-1701914224 source:c:\c++\kaicc1\parent.cpp
+1702427145 source:c:\c++\kaicc1\parent.cpp
 	<iostream>
 	"parent.h"
 
 1701936235 c:\c++\kaicc1\parent.h
 	<iostream>
 
-1701915913 source:c:\c++\kaicc1\relasi.cpp
+1702427079 source:c:\c++\kaicc1\relasi.cpp
 	<iostream>
 	"relasi.h"
 	"parent.h"
 	"child.h"
 
-1701915814 c:\c++\kaicc1\relasi.h
+1702426755 c:\c++\kaicc1\relasi.h
 	<iostream>
 	"parent.h"
 	"child.h"

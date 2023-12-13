@@ -32,9 +32,12 @@ void insertLastRelasi_4(list_relasi &L,adr_relasi P);
 void deleteFirstRelasi_4(list_relasi L, adr_relasi P);
 void deleteAfterRelasi_4(list_relasi L,adr_relasi prec,adr_relasi P);
 void deleteLastRelasi_4(list_relasi L,adr_relasi P);
-void searchStasiun_4(list_parent LP,string id_stasiun);
-void searchKereta_4(list_child LC,string id_kereta);
+adr_parent searchStasiun_4(list_parent L,string id_stasiun);
+adr_child searchKereta_4(list_child LC,string id_kereta);
+void showParentCocok_4(list_parent L,string asal,string tujuan);
 void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P);
+int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
+int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
 
 
 

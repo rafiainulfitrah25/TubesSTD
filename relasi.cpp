@@ -11,7 +11,6 @@ void createListRelasi_4(list_relasi &L) {
 }
 
 void createNewElmtRelasi_4(adr_relasi &P) {
-    adr_relasi P;
     P = new Elmt_relasi;
     nextr(P) = P;  // Menyambungkan P dengan dirinya sendiri
     prevr(P) = P;
@@ -22,10 +21,6 @@ void createNewElmtRelasi_4(adr_relasi &P) {
 void dealokasiRelasi_4(adr_relasi &P) {
     delete P;
 }
-
-
-
-
 
 void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi P,string kode_kereta, string kode_stasiun) {
     if (firstr(L) == NULL) {
@@ -45,7 +40,20 @@ adr_child searchKereta_4(list_child L,string id_kereta) {
     adr_child x;
     x = firstch(L);
     while (x != NULL){
-        if (info(x).id_kereta == id_kereta) {
+        if (infoch(x).id_kereta == id_kereta) {
+            return x;
+        }else {
+            x = nextch(x);
+        }
+        return NULL;
+    }
+}
+
+adr_parent searchStasiun_4(list_parent L,string id_stasiun) {
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL){
+        if (infopr(x).id_stasiun == id_stasiun) {
             return x;
         }else {
             x = next(x);
@@ -53,33 +61,109 @@ adr_child searchKereta_4(list_child L,string id_kereta) {
         return NULL;
     }
 }
-
-adr_parent searchParent_4(list_parent L,string id_stasiun) {
+void showParentCocok_4(list_parent L,string asal,string tujuan){
     adr_parent x;
-    x = firstpr(L);
+    x = Firstpr(L);
+    bool found = false;
+    cout << "-data stasiun-" <<endl;
     while (x != NULL){
-        if (info(x).id_stasiun == id_stasiun) {
-            return x;
-        }else {
-            x = next(x);
+        if (infopr(x).kabkot == asal || infopr(x).kabkot == tujuan){
+            cout << infopr(x).id_stasiun <<endl;
+            cout << infopr(x).nama << endl;
+            cout <<infopr(x).kabkot<<endl;
+            found = true;
         }
-        return NULL;
+        x = next(x);
     }
+    if (found == false){
+        cout<<"tidak ada yang cocok"<< endl;
+    }
+    cout << "---------" <<endl;
 }
 
 void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P){
     createNewElmtRelasi_4(P);
     adr_parent Y;
     adr_child X;
-    //print info kereta
-    //input id kereta
+    string id_kereta,id_stasiun;
+    showChild_4(Lc);
+    cout <<" pilih kereta :" <<endl;
+    cin >> id_kereta;
     X = searchKereta_4(Lc,id_kereta);
-    //show info stasiun sesuai
-    //input id stasiun
-    Y = searchStasiun_4(Lp,id_stasiun);
+    if (X != NULL){
+        showParentCocok_4(Lp,infoch(X).asal_perjalanan,infoch(X).tujuan_perjalanan);
+        Y = searchStasiun_4(Lp,id_stasiun);
+    }else{
+        cout <<"id kereta salah"<<endl;
+    }
     if (Y == NULL) {
         cout <<"id stasiun salah"<<endl;
     }
+}
+
+bool findRelasi_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
+
+}
+
+int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
+    adr_parent X;
+    X = searchStasiun_4(Lp,id_stasiun);
+    adr_relasi Y;
+    Y = firstr(L);
+    int jml = 0;
+    do {
+        if (relasi_parent(Y) == X && relasi_child(Y) != NULL){
+            jml++;
+        }
+        Y = next(Y);
+    }while (Y != firstr(L));
+    return jml;
+}
+
+int countparent_4(list_relasi L,list_child Lc,list_parent Lp,string id_kereta){
+    adr_child X;
+    X = searchKereta_4(Lc,id_kereta);
+    adr_relasi Y;
+    Y = firstr(L);
+    int jml = 0;
+    do {
+        if (relasi_child(Y) == X && relasi_parent(Y) != NULL){
+            jml++;
+        }
+        Y = next(Y);
+    }while (Y != firstr(L));
+    return jml;
+}
+
+int countnonchild_4(list_relasi L,list_child Lc,list_parent Lp){
+    adr_parent X;
+    int jml = 0;
+    X = Firstpr(Lp);
+    while (X != NULL){
+        if (countchild_4(L,Lc,Lp,infopr(X).id_stasiun)== 0){
+            jml++;
+        }
+        X = nextpr(X);
+    }
+    return jml;
+}
+
+int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp){
+    adr_child X;
+    int jml = 0;
+    X = firstch(Lc);
+    while (X != NULL){
+        if (countparent_4(L,Lc,Lp,infoch(X).id_kereta)== 0){
+            jml++;
+        }
+        X = nextch(X);
+    }
+    return jml;
+}
+
+void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp,string id_stasiun){
+    adr_parent X;
+    X = searchStasiun_4(Lp,id_stasiun)
 }
 
 void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P) {
@@ -136,3 +220,4 @@ void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
         nextr(P) = NULL;
     }
 }
+
