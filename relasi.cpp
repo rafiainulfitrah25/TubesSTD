@@ -35,32 +35,61 @@ void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi 
     }
 }
 
-
-adr_child searchKereta_4(list_child L,string id_kereta) {
-    adr_child x;
-    x = firstch(L);
-    while (x != NULL){
-        if (infoch(x).id_kereta == id_kereta) {
-            return x;
-        }else {
-            x = nextch(x);
-        }
-        return NULL;
+void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P) {
+    if (firstr(L) == NULL) {
+        cout<<"list kosong"<<endl;
+    }else if (nextr(P) == P) {
+        P = firstr(L);
+        firstr(L) = NULL;
+        lastr(L) = NULL;
+    }else{
+        firstr(L) = nextr(P);
+        nextr(lastr(L)) = firstr(L);
+        prevr(firstr(L))= lastr(L);
+        nextr(P) = NULL;
+        prevr(P) = NULL;
     }
 }
 
-adr_parent searchStasiun_4(list_parent L,string id_stasiun) {
-    adr_parent x;
-    x = Firstpr(L);
-    while (x != NULL){
-        if (infopr(x).id_stasiun == id_stasiun) {
-            return x;
-        }else {
-            x = next(x);
-        }
-        return NULL;
+void deleteAfter_1301223470(list_relasi &L, adr_relasi &P, adr_relasi &prec) {
+    P = next(prec);
+    if (firstr(L) == NULL) {
+        cout<<"list kosong"<<endl;
+    }else if (P == lastr(L)) {
+        lastr(L) = prec;
+        nextr(lastr(L)) = firstr(L);
+        prevr(firstr(L)) = lastr(L);
+        nextr(P) = NULL;
+        prevr(P) = NULL;
+    }else{
+        nextr(prec) = nextr(P);
+        prevr(nextr(P)) = prec;
+        nextr(P) = NULL;
+        prevr(P) = NULL;
     }
 }
+
+void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
+    adr_relasi X = firstr(L);
+    if (X == NULL) {
+        cout<<"list kosong"<<endl;
+    }else if ( X == lastr(L)) {
+        P = lastr(L);
+        firstr(L) = NULL;
+        lastr(L) = NULL;
+    }else {
+        while (nextr(X) != lastr(L)) {
+            X = next(X);
+        }
+        P = nextr(X);
+        lastr(L) = X;
+        nextr(X) = firstr(L);
+        prevr(firstr(L)) = X;
+        prevr(P) = NULL;
+        nextr(P) = NULL;
+    }
+}
+
 void showParentCocok_4(list_parent L,string asal,string tujuan){
     adr_parent x;
     x = Firstpr(L);
@@ -161,63 +190,10 @@ int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp){
     return jml;
 }
 
-void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp,string id_stasiun){
+/*void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp,string id_stasiun){
     adr_parent X;
     X = searchStasiun_4(Lp,id_stasiun)
 }
+*/
 
-void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P) {
-    if (firstr(L) == NULL) {
-        cout<<"list kosong"<<endl;
-    }else if (nextr(P) == P) {
-        P = firstr(L);
-        firstr(L) = NULL;
-        lastr(L) = NULL;
-    }else{
-        firstr(L) = nextr(P);
-        nextr(lastr(L)) = firstr(L);
-        prevr(firstr(L))= lastr(L);
-        nextr(P) = NULL;
-        prevr(P) = NULL;
-    }
-}
-
-void deleteAfter_1301223470(list_relasi &L, adr_relasi &P, adr_relasi &prec) {
-    P = next(prec);
-    if (firstr(L) == NULL) {
-        cout<<"list kosong"<<endl;
-    }else if (P == lastr(L)) {
-        lastr(L) = prec;
-        nextr(lastr(L)) = firstr(L);
-        prevr(firstr(L)) = lastr(L);
-        nextr(P) = NULL;
-        prevr(P) = NULL;
-    }else{
-        nextr(prec) = nextr(P);
-        prevr(nextr(P)) = prec;
-        nextr(P) = NULL;
-        prevr(P) = NULL;
-    }
-}
-
-void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
-    adr_relasi X = firstr(L);
-    if (X == NULL) {
-        cout<<"list kosong"<<endl;
-    }else if ( X == lastr(L)) {
-        P = lastr(L);
-        firstr(L) = NULL;
-        lastr(L) = NULL;
-    }else {
-        while (nextr(X) != lastr(L)) {
-            X = next(X);
-        }
-        P = nextr(X);
-        lastr(L) = X;
-        nextr(X) = firstr(L);
-        prevr(firstr(L)) = X;
-        prevr(P) = NULL;
-        nextr(P) = NULL;
-    }
-}
 

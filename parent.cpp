@@ -78,3 +78,32 @@ void deleteafterParent_4(list_parent &L, adr_parent &P, adr_parent prec){
         cout<<"list kosong"<<endl;
     }
 }
+
+adr_parent searchStasiun_4(list_parent L,string id_stasiun) {
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL){
+        if (infopr(x).id_stasiun == id_stasiun) {
+            return x;
+        }else {
+            x = next(x);
+        }
+        return NULL;
+    }
+}
+
+void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun){
+    adr_parent x;
+    x = searchStasiun_4(L,id_stasiun);
+    if (x== Firstpr(L)){
+        deletefirstParent_4(L,P);
+    }else if(nextpr(x)== NULL){
+        deletelastParent_4(L,P);
+    }else{
+        adr_parent q;
+        while (nextpr(q) != x){
+            q = nextpr(q);
+        }
+        deleteafterParent_4(L,P,q);
+    }
+}

@@ -34,7 +34,8 @@ void showLastParent_4(list_parent L,int K);
 void deletefirstParent_4(list_parent &L,adr_parent &P);
 void deletelastParent_4(list_parent &L, adr_parent &P);
 void deleteafterParent_4(list_parent &L, adr_parent &P, adr_parent prec);
-
+adr_parent searchStasiun_4(list_parent L,string id_stasiun);
+void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun);
 
 
 

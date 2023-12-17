@@ -102,3 +102,32 @@ void showChild_4(list_child L){
         x = nextch(x);
     }
 }
+
+adr_child searchKereta_4(list_child L,string id_kereta) {
+    adr_child x;
+    x = firstch(L);
+    while (x != NULL){
+        if (infoch(x).id_kereta == id_kereta) {
+            return x;
+        }else {
+            x = nextch(x);
+        }
+        return NULL;
+    }
+}
+
+void deleteChild_4(list_child &L,adr_child &P,string id_kereta){
+    adr_child x;
+    x = searchKereta_4(L,id_kereta);
+    if (x== firstch(L)){
+        deletefirstChild_4(L,P);
+    }else if(nextch(x)== NULL){
+        deleteLastChild_4(L,P);
+    }else{
+        adr_child q;
+        while (nextch(q) != x){
+            q = nextch(q);
+        }
+        DeleteAfterChild_4(L,P,q);
+    }
+}
