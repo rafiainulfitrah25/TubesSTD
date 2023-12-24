@@ -191,13 +191,13 @@ int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp){
 }
 
 void showchildrelasi_4(list_relasi L,list_parent Lp,string id_stasiun){
-    adr_child X;
-    X = searchKereta_4(Lc,id_kereta);
+    adr_parent X;
+    X = searchStasiun_4(Lp,id_stasiun);
     adr_relasi Y;
     Y = firstr(L);
     do {
-        if (relasi_child(Y) == X && relasi_parent(Y) != NULL){
-            cout<<infopr(relasi_parent(Y)).id_stasiun;
+        if (relasi_parent(Y) == X && relasi_child(Y) != NULL){
+            cout<<infoch(relasi_child(Y)).id_kereta;
         }
         Y = nextr(Y);
     }while (Y != firstr(L));
@@ -244,23 +244,23 @@ void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp){
 void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp){
     string id_stasiun,kereta_awal,kereta_pengganti;
     cout << "edit relasi" <<endl;
-    showChild_4(Lc);
-    cout <<"pilih kereta"<<endl;
-    cin>>id_kereta;
-    showparentrelasi_4(L,Lc,id_kereta);
-    cout << "pilih stasiun untuk diubah" <<endl;
-    cin >> stasiun_awal;
     showParent_4(Lp);
-    cout <<"inputkan id stasiun baru"<<endl;
-    cin >> stasiun_pengganti;
-    adr_child x = searchKereta_4(Lc,id_kereta);
-    adr_parent y = searchStasiun_4 (Lp,stasiun_awal);
-    adr_parent P = searchStasiun_4(Lp,stasiun_pengganti);
+    cout <<"pilih stasiun"<<endl;
+    cin>>id_stasiun;
+    showchildrelasi_4(L,Lp,id_stasiun);
+    cout << "pilih kereta untuk diubah" <<endl;
+    cin >> kereta_awal;
+    showChild_4(Lc);
+    cout <<"inputkan id kereta baru"<<endl;
+    cin >> kereta_pengganti;
+    adr_parent x = searchStasiun_4(Lp,id_stasiun);
+    adr_child y = searchKereta_4 (Lc,kereta_awal);
+    adr_child P = searchKereta_4(Lc,kereta_pengganti);
     adr_relasi R;
     R = firstr(L);
     do {
-        if (relasi_child(R) == x && relasi_parent(R) == y){
-            relasi_parent(R) = P;
+        if (relasi_parent(R) == x && relasi_child(R) == y){
+            relasi_child(R) = P;
         }
         R = nextr(R);
     }while (R != firstr(L));
