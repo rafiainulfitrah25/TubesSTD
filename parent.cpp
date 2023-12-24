@@ -27,6 +27,21 @@ void InsertLastParent_4(list_parent &L, adr_parent P){
     }
 };
 
+void insertparent_4(list_parent &L){
+    infotype_parent data;
+    cout<<"masukan id stasiun"<<endl;
+    cin>> data.id_stasiun;
+    cout<<"masukan kabupaten/kota stasiun"<<endl;
+    cin>> data.kabkot;
+    cout<<"masukan nama stasiun"<<endl;
+    cin>> data.nama;
+    cout<<"masukan provinsi stasiun"<<endl;
+    cin>> data.provinsi;
+    data.traffic_status = 0;
+    adr_parent P = createNewElmtParent_4(data);
+    InsertLastParent_4(L,P);
+}
+
 void showParent_4(list_parent L){
     adr_parent x;
     x = Firstpr(L);
@@ -107,3 +122,5 @@ void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun){
         deleteafterParent_4(L,P,q);
     }
 }
+
+

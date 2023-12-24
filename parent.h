@@ -30,6 +30,7 @@ struct list_parent {
 void createListParent_4(list_parent &L);
 adr_parent createNewElmtParent_4(infotype_parent data);
 void InsertLastParent_4(list_parent &L, adr_parent P);
+void insertparent_4(list_parent &L);
 void showLastParent_4(list_parent L,int K);
 void deletefirstParent_4(list_parent &L,adr_parent &P);
 void deletelastParent_4(list_parent &L, adr_parent &P);

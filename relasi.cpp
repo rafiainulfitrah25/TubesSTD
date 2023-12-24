@@ -131,7 +131,17 @@ void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P){
 }
 
 bool findRelasi_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
-
+    adr_relasi X;
+    X = firstr(L);
+    do {
+        if (infopr(relasi_parent(X)).id_stasiun == id_stasiun && relasi_child(X) != NULL){
+            return true;
+        }
+        else {
+           X = nextr(X);
+        }
+    }while (X != firstr(L));
+    return false;
 }
 
 int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
@@ -265,6 +275,10 @@ void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp){
         R = nextr(R);
     }while (R != firstr(L));
 }
+
+
+
+
 
 
 
