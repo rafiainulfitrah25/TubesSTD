@@ -190,10 +190,81 @@ int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp){
     return jml;
 }
 
-/*void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp,string id_stasiun){
-    adr_parent X;
-    X = searchStasiun_4(Lp,id_stasiun)
+void showchildrelasi_4(list_relasi L,list_parent Lp,string id_stasiun){
+    adr_child X;
+    X = searchKereta_4(Lc,id_kereta);
+    adr_relasi Y;
+    Y = firstr(L);
+    do {
+        if (relasi_child(Y) == X && relasi_parent(Y) != NULL){
+            cout<<infopr(relasi_parent(Y)).id_stasiun;
+        }
+        Y = nextr(Y);
+    }while (Y != firstr(L));
 }
-*/
+
+void showparentrelasi_4(list_relasi L,list_child Lc,string id_kereta){
+    adr_child X;
+    X = searchKereta_4(Lc,id_kereta);
+    adr_relasi Y;
+    Y = firstr(L);
+    do {
+        if (relasi_child(Y) == X && relasi_parent(Y) != NULL){
+            cout<<infopr(relasi_parent(Y)).id_stasiun;
+        }
+        Y = nextr(Y);
+    }while (Y != firstr(L));
+}
+
+void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp){
+    string id_kereta,stasiun_awal,stasiun_pengganti;
+    cout << "edit relasi" <<endl;
+    showChild_4(Lc);
+    cout <<"pilih kereta"<<endl;
+    cin>>id_kereta;
+    showparentrelasi_4(L,Lc,id_kereta);
+    cout << "pilih stasiun untuk diubah" <<endl;
+    cin >> stasiun_awal;
+    showParent_4(Lp);
+    cout <<"inputkan id stasiun baru"<<endl;
+    cin >> stasiun_pengganti;
+    adr_child x = searchKereta_4(Lc,id_kereta);
+    adr_parent y = searchStasiun_4 (Lp,stasiun_awal);
+    adr_parent P = searchStasiun_4(Lp,stasiun_pengganti);
+    adr_relasi R;
+    R = firstr(L);
+    do {
+        if (relasi_child(R) == x && relasi_parent(R) == y){
+            relasi_parent(R) = P;
+        }
+        R = nextr(R);
+    }while (R != firstr(L));
+}
+
+void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp){
+    string id_stasiun,kereta_awal,kereta_pengganti;
+    cout << "edit relasi" <<endl;
+    showChild_4(Lc);
+    cout <<"pilih kereta"<<endl;
+    cin>>id_kereta;
+    showparentrelasi_4(L,Lc,id_kereta);
+    cout << "pilih stasiun untuk diubah" <<endl;
+    cin >> stasiun_awal;
+    showParent_4(Lp);
+    cout <<"inputkan id stasiun baru"<<endl;
+    cin >> stasiun_pengganti;
+    adr_child x = searchKereta_4(Lc,id_kereta);
+    adr_parent y = searchStasiun_4 (Lp,stasiun_awal);
+    adr_parent P = searchStasiun_4(Lp,stasiun_pengganti);
+    adr_relasi R;
+    R = firstr(L);
+    do {
+        if (relasi_child(R) == x && relasi_parent(R) == y){
+            relasi_parent(R) = P;
+        }
+        R = nextr(R);
+    }while (R != firstr(L));
+}
+
 
 
