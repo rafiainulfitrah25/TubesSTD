@@ -27,23 +27,36 @@ void InsertLastParent_4(list_parent &L, adr_parent P){
     }
 };
 
-void showLastParent_4(list_parent L,int K){
-    adr_parent P = Firstpr(L);
-    int totlist = 0;
-    int index;
-    while (nextpr(P) != NULL) {
-        totlist++;
-        P = nextpr(P);
+void insertparent_4(list_parent &L){
+    infotype_parent data;
+    cout<<"masukan id stasiun"<<endl;
+    cin>> data.id_stasiun;
+    cout<<"masukan kabupaten/kota stasiun"<<endl;
+    cin>> data.kabkot;
+    cout<<"masukan nama stasiun"<<endl;
+    cin>> data.nama;
+    cout<<"masukan provinsi stasiun"<<endl;
+    cin>> data.provinsi;
+    data.traffic_status = 0;
+    adr_parent P = createNewElmtParent_4(data);
+    InsertLastParent_4(L,P);
+}
+
+void showParent_4(list_parent L){
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL) {
+        cout <<"---data all stasiun---"<<endl;
+        cout<< infopr(x).id_stasiun<<endl;
+        cout<< infopr(x).nama<<endl;
+        cout<< infopr(x).kabkot<<endl;
+        cout<< infopr(x).provinsi<<endl;
+        cout<< infopr(x).traffic_status<<endl;
+        cout<<"-------------------"<<endl;
+        x = nextpr(x);
     }
-    index = totlist-(K-1);
-    P = Firstpr(L);
-    for (int i = 1; i <= index; i++) {
-            P= nextpr(P);
-    }
-    cout<<infopr(P).nama<<endl;
-    cout<<infopr(P).kode_stasiun<<endl;
-    cout<<infopr(P).provinsi<<endl;
-};
+}
+
 
 void deletefirstParent_4(list_parent &L,adr_parent &P){
     if (Firstpr(L)!= NULL){
@@ -80,3 +93,34 @@ void deleteafterParent_4(list_parent &L, adr_parent &P, adr_parent prec){
         cout<<"list kosong"<<endl;
     }
 }
+
+adr_parent searchStasiun_4(list_parent L,string id_stasiun) {
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL){
+        if (infopr(x).id_stasiun == id_stasiun) {
+            return x;
+        }else {
+            x = next(x);
+        }
+        return NULL;
+    }
+}
+
+void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun){
+    adr_parent x;
+    x = searchStasiun_4(L,id_stasiun);
+    if (x== Firstpr(L)){
+        deletefirstParent_4(L,P);
+    }else if(nextpr(x)== NULL){
+        deletelastParent_4(L,P);
+    }else{
+        adr_parent q;
+        while (nextpr(q) != x){
+            q = nextpr(q);
+        }
+        deleteafterParent_4(L,P,q);
+    }
+}
+
+

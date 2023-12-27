@@ -8,10 +8,11 @@
 using namespace std;
 
 struct datastasiun {
+    string id_stasiun;
     string nama;
-    string kode_stasiun;
+    string kabkot;
     string provinsi;
-    string traffic_status;
+    int traffic_status;
 };
 
 typedef datastasiun infotype_parent;
@@ -29,11 +30,14 @@ struct list_parent {
 void createListParent_4(list_parent &L);
 adr_parent createNewElmtParent_4(infotype_parent data);
 void InsertLastParent_4(list_parent &L, adr_parent P);
+void insertparent_4(list_parent &L);
 void showLastParent_4(list_parent L,int K);
 void deletefirstParent_4(list_parent &L,adr_parent &P);
 void deletelastParent_4(list_parent &L, adr_parent &P);
 void deleteafterParent_4(list_parent &L, adr_parent &P, adr_parent prec);
-
+adr_parent searchStasiun_4(list_parent L,string id_stasiun);
+void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun);
+void showParent_4(list_parent L);
 
 
 

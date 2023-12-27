@@ -1,28 +1,31 @@
 # depslib dependency file v1.0
-1584205420 source:c:\c++\kaicc1\main.cpp
-	<iostream>
-
-1701860007 source:c:\c++\kaicc1\child.cpp
-	<iostream>
-	"child.h"
-
-1701913311 c:\c++\kaicc1\child.h
-	<iostream>
-
-1701914224 source:c:\c++\kaicc1\parent.cpp
-	<iostream>
-	"parent.h"
-
-1701913753 c:\c++\kaicc1\parent.h
-	<iostream>
-
-1701915913 source:c:\c++\kaicc1\relasi.cpp
+1703429572 source:c:\c++\kaicc1\main.cpp
 	<iostream>
 	"relasi.h"
 	"parent.h"
 	"child.h"
 
-1701915814 c:\c++\kaicc1\relasi.h
+1702824870 source:c:\c++\kaicc1\child.cpp
+	<iostream>
+	"child.h"
+
+1702824719 c:\c++\kaicc1\child.h
+	<iostream>
+
+1703429922 source:c:\c++\kaicc1\parent.cpp
+	<iostream>
+	"parent.h"
+
+1703429975 c:\c++\kaicc1\parent.h
+	<iostream>
+
+1703429568 source:c:\c++\kaicc1\relasi.cpp
+	<iostream>
+	"relasi.h"
+	"parent.h"
+	"child.h"
+
+1702824845 c:\c++\kaicc1\relasi.h
 	<iostream>
 	"parent.h"
 	"child.h"

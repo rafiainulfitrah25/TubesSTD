@@ -28,14 +28,16 @@ struct list_relasi {
 void createListRelasi_4(list_relasi &L);
 void createNewElmtRelasi_4(adr_relasi &P);
 void dealokasiRelasi_4(adr_relasi &P);
-//void insertFirstRelasi_4(List &L,address P);
-//void insertAfterRelasi_4(List &L,address prec,address P);
 void insertLastRelasi_4(list_relasi &L,adr_relasi P);
-//void findElmRelasi_4(List L,infotype x);
 void deleteFirstRelasi_4(list_relasi L, adr_relasi P);
 void deleteAfterRelasi_4(list_relasi L,adr_relasi prec,adr_relasi P);
 void deleteLastRelasi_4(list_relasi L,adr_relasi P);
-
+void showParentCocok_4(list_parent L,string asal,string tujuan);
+void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P);
+int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
+int countparent_4(list_relasi L,list_child Lc,list_parent Lp,string id_kereta);
+int countnonchild_4(list_relasi L,list_child Lc,list_parent Lp);
+int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp);
 
 
 
