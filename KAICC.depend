@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1703631957 source:d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\stasiun.cpp
+	<iostream>
+	"stasiun.h"
+
+1703625582 d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\stasiun.h
+
+1703634620 source:d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\main.cpp
+	<iostream>
+	"stasiun.h"
+	"component.cpp"
+	"utils.cpp"
+
+1703621502 d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\stasiun.cpp
+	<iostream>
+	"stasiun.h"
+
+1703632159 source:d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\component.cpp
+	<iostream>
+
+1703631900 source:d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\kereta.cpp
+	<iostream>
+	"kereta.h"
+
+1703631680 d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\kereta.h
+
+1703634482 source:d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\utils.cpp
+	<iostream>
+	<typeinfo>
+	<limits>
+
+1703632159 d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\component.cpp
+	<iostream>
+
+1703634482 d:\programming_journey\tech stack learning and mastering\language\c++\kaicc\utils.cpp
+	<iostream>
+	<typeinfo>
+	<limits>
+
