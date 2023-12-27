@@ -30,5 +30,7 @@ void menu1(list_parent &Lp,list_child &Lc,list_relasi &Lr){
     cin >>input;
     if (input == 1){
         insertparent_4(Lp);
+    }else if (input == 2){
+        insertchild_4(Lc);
     }
 }

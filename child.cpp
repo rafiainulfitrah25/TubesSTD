@@ -24,25 +24,6 @@ adr_child createNewElmtChild_4(infotype_child X){
     return P;
 };
 
-void insertFirstChild_4(list_child &L, adr_child P){
-    if (isEmptyChild_4(L) == true) {
-        firstch(L) = P;
-        lastch(L)= P;
-    }else {
-        nextch(P) = firstch(L);
-        prevch(firstch(L)) = P;
-        firstch(L) = P;
-    }
-
-}
-
-void insertAfterChild_4( list_child &L,adr_child prec, adr_child P){
-    nextch(P) = nextch(prec);
-    prevch(P) = prec;
-    nextch(prec) = P;
-    prevch(nextch(P)) = P;
-}
-
 void insertLastChild_4(list_child &L, adr_child P) {
     if (isEmptyChild_4(L) == true) {
         firstch(L) = P;
@@ -53,6 +34,22 @@ void insertLastChild_4(list_child &L, adr_child P) {
         lastch(L) = P;
     }
 }
+
+void insertchild_4(list_child &L){
+    infotype_child data;
+    cout<<"masukan id kereta"<<endl;
+    cin>> data.id_kereta;
+    cout<<"masukan nama kereta"<<endl;
+    cin>> data.nama_kereta;
+    cout<<"masukan asal perjalanan"<<endl;
+    cin>> data.asal_perjalanan;
+    cout<<"masukan tujuan perjalanan"<<endl;
+    cin>> data.tujuan_perjalanan;
+    data.pemberhentian = 0;
+    adr_child P = createNewElmtChild_4(data);
+    insertLastChild_4(L,P);
+}
+
 
 void deletefirstChild_4(list_child &L,adr_child &P){
     if (nextch(firstch(L)) == NULL) {
