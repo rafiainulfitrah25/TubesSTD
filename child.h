@@ -39,6 +39,7 @@ void deletefirstChild_4(list_child &L,adr_child &P);
 void DeleteAfterChild_4(list_child &L,adr_child prec, adr_child &P);
 void deleteLastChild_4(list_child &L,adr_child &P);
 void showChild_4(list_child L);
+void showkodekereta_4(list_child L);
 adr_child searchKereta_4(list_child L,string id_kereta);
 void deleteChild_4(list_child &L,adr_child &P,string id_kereta);
 

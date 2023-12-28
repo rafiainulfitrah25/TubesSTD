@@ -10,19 +10,20 @@ void createListRelasi_4(list_relasi &L) {
     lastr(L) = NULL;
 }
 
-void createNewElmtRelasi_4(adr_relasi &P) {
-    P = new Elmt_relasi;
-    nextr(P) = P;  // Menyambungkan P dengan dirinya sendiri
+adr_relasi createNewElmtRelasi_4() {
+    adr_relasi P = new Elmt_relasi;
+    P -> nextr = P;  // Menyambungkan P dengan dirinya sendiri
     prevr(P) = P;
     relasi_parent(P) = NULL;
     relasi_child(P) = NULL;
+    return P;
 }
 
 void dealokasiRelasi_4(adr_relasi &P) {
     delete P;
 }
 
-void insertLastRelasi_4(list_relasi &L,list_child Lc,list_parent Lp, adr_relasi P,string kode_kereta, string kode_stasiun) {
+void insertLastRelasi_4(list_relasi &L, adr_relasi P) {
     if (firstr(L) == NULL) {
         firstr(L) = P;
         lastr(L) = P;
@@ -102,7 +103,7 @@ void showParentCocok_4(list_parent L,string asal,string tujuan){
             cout <<infopr(x).kabkot<<endl;
             found = true;
         }
-        x = next(x);
+        x = nextpr(x);
     }
     if (found == false){
         cout<<"tidak ada yang cocok"<< endl;
@@ -111,22 +112,28 @@ void showParentCocok_4(list_parent L,string asal,string tujuan){
 }
 
 void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P){
-    createNewElmtRelasi_4(P);
     adr_parent Y;
     adr_child X;
     string id_kereta,id_stasiun;
-    showChild_4(Lc);
+    showkodekereta_4(Lc);
     cout <<" pilih kereta :" <<endl;
     cin >> id_kereta;
     X = searchKereta_4(Lc,id_kereta);
     if (X != NULL){
         showParentCocok_4(Lp,infoch(X).asal_perjalanan,infoch(X).tujuan_perjalanan);
+        cout <<"pilih Stasiun :" <<endl;
+        cin >> id_stasiun;
         Y = searchStasiun_4(Lp,id_stasiun);
     }else{
         cout <<"id kereta salah"<<endl;
     }
     if (Y == NULL) {
         cout <<"id stasiun salah"<<endl;
+    }else{
+        P = createNewElmtRelasi_4();
+        relasi_child(P) = X;
+        relasi_parent(P) = Y;
+        insertLastRelasi_4(L,P);
     }
 }
 

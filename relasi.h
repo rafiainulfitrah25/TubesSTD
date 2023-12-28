@@ -26,7 +26,7 @@ struct list_relasi {
 };
 
 void createListRelasi_4(list_relasi &L);
-void createNewElmtRelasi_4(adr_relasi &P);
+adr_relasi createNewElmtRelasi_4();
 void dealokasiRelasi_4(adr_relasi &P);
 void insertLastRelasi_4(list_relasi &L,adr_relasi P);
 void deleteFirstRelasi_4(list_relasi L, adr_relasi P);
@@ -38,6 +38,10 @@ int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
 int countparent_4(list_relasi L,list_child Lc,list_parent Lp,string id_kereta);
 int countnonchild_4(list_relasi L,list_child Lc,list_parent Lp);
 int countnonparent_4(list_relasi L,list_child Lc,list_parent Lp);
+void showchildrelasi_4(list_relasi L,list_parent Lp,string id_stasiun);
+void showparentrelasi_4(list_relasi L,list_child Lc,string id_kereta);
+void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp);
+void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp);
 
 
 

@@ -100,6 +100,18 @@ void showChild_4(list_child L){
     }
 }
 
+void showkodekereta_4(list_child L){
+    adr_child x;
+    x = firstch(L);
+    while (x != NULL) {
+        cout <<"---data kereta---"<<endl;
+        cout<< infoch(x).id_kereta<<"||";
+        cout<< infoch(x).nama_kereta<<endl;
+        cout<<"-------------------"<<endl;
+        x = nextch(x);
+    }
+}
+
 adr_child searchKereta_4(list_child L,string id_kereta) {
     adr_child x;
     x = firstch(L);
