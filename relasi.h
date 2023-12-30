@@ -29,9 +29,9 @@ void createListRelasi_4(list_relasi &L);
 adr_relasi createNewElmtRelasi_4();
 void dealokasiRelasi_4(adr_relasi &P);
 void insertLastRelasi_4(list_relasi &L,adr_relasi P);
-void deleteFirstRelasi_4(list_relasi L, adr_relasi P);
-void deleteAfterRelasi_4(list_relasi L,adr_relasi prec,adr_relasi P);
-void deleteLastRelasi_4(list_relasi L,adr_relasi P);
+void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P);
+void deleteAfterRelasi_4(list_relasi &L,adr_relasi &prec,adr_relasi &P);
+void deleteLastRelasi_4(list_relasi &L,adr_relasi &P);
 void showParentCocok_4(list_parent L,string asal,string tujuan);
 void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P);
 int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
@@ -42,7 +42,7 @@ void showchildrelasi_4(list_relasi L,list_parent Lp,string id_stasiun);
 void showparentrelasi_4(list_relasi L,list_child Lc,string id_kereta);
 void editRelasitoPr_4(list_relasi &L,list_child &Lc,list_parent &Lp);
 void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp);
-
+adr_relasi findRelasi_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun);
 
 
 

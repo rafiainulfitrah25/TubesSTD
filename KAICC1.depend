@@ -13,7 +13,7 @@
 1703748629 c:\c++\kaicc1\child.h
 	<iostream>
 
-1703429922 source:c:\c++\kaicc1\parent.cpp
+1703919294 source:c:\c++\kaicc1\parent.cpp
 	<iostream>
 	"parent.h"
 
@@ -26,7 +26,7 @@
 	"parent.h"
 	"child.h"
 
-1703747258 c:\c++\kaicc1\relasi.h
+1703920890 c:\c++\kaicc1\relasi.h
 	<iostream>
 	"parent.h"
 	"child.h"

@@ -52,8 +52,8 @@ void deleteFirstRelasi_4(list_relasi &L, adr_relasi &P) {
     }
 }
 
-void deleteAfter_1301223470(list_relasi &L, adr_relasi &P, adr_relasi &prec) {
-    P = next(prec);
+void deleteAfterRelasi_4(list_relasi &L, adr_relasi &P, adr_relasi &prec) {
+    P = nextr(prec);
     if (firstr(L) == NULL) {
         cout<<"list kosong"<<endl;
     }else if (P == lastr(L)) {
@@ -80,7 +80,7 @@ void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
         lastr(L) = NULL;
     }else {
         while (nextr(X) != lastr(L)) {
-            X = next(X);
+            X = nextr(X);
         }
         P = nextr(X);
         lastr(L) = X;
@@ -92,7 +92,7 @@ void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
 }
 
 void deleterelasi_4(list_relasi &L,adr_relasi r){
-    if (r== firstr(L)){
+    if (r == firstr(L)){
         deleteFirstRelasi_4(L,r);
     }else if(nextr(r)== NULL){
         deleteLastRelasi_4(L,r);
@@ -115,7 +115,7 @@ void deleterelparent_4(list_relasi &Lr,list_parent &Lp,list_child &Lc){
     cin >>id_stasiun;
     r =findRelasi_4(Lr,Lc,Lp,id_stasiun);
     deleterelasi_4(Lr,r);
-    deleteParent_4(Lp,p,id_stasiun)
+    deleteParent_4(Lp,p,id_stasiun);
 }
 
 void showParentCocok_4(list_parent L,string asal,string tujuan){
@@ -164,18 +164,18 @@ void hubungkan_4(list_relasi &L,list_child &Lc,list_parent &Lp, adr_relasi P){
     }
 }
 
-bool findRelasi_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
+adr_relasi findRelasi_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
     adr_relasi X;
     X = firstr(L);
     do {
         if (infopr(relasi_parent(X)).id_stasiun == id_stasiun && relasi_child(X) != NULL){
-            return true;
+            return X;
         }
         else {
            X = nextr(X);
         }
     }while (X != firstr(L));
-    return false;
+    return X;
 }
 
 int countchild_4(list_relasi L,list_child Lc,list_parent Lp,string id_stasiun){
