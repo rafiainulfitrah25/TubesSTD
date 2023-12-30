@@ -38,7 +38,7 @@ void deleteafterParent_4(list_parent &L, adr_parent &P, adr_parent prec);
 adr_parent searchStasiun_4(list_parent L,string id_stasiun);
 void deleteParent_4(list_parent &L,adr_parent &P,string id_stasiun);
 void showParent_4(list_parent L);
-
+void showkodestasiun_4(list_parent L);
 
 
 #endif // PARENT_H_INCLUDED

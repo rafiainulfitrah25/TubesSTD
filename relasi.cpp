@@ -91,6 +91,33 @@ void deleteLastRelasi_4(list_relasi &L, adr_relasi &P) {
     }
 }
 
+void deleterelasi_4(list_relasi &L,adr_relasi r){
+    if (r== firstr(L)){
+        deleteFirstRelasi_4(L,r);
+    }else if(nextr(r)== NULL){
+        deleteLastRelasi_4(L,r);
+    }else{
+        adr_relasi q;
+        q = firstr(L);
+        while (nextr(q) != r){
+            q = nextr(q);
+        }
+        deleteAfterRelasi_4(L,q,r);
+    }
+}
+
+void deleterelparent_4(list_relasi &Lr,list_parent &Lp,list_child &Lc){
+    string id_stasiun;
+    adr_relasi r;
+    adr_parent p;
+    showkodestasiun_4(Lp);
+    cout<<"pIlih yang dihapus"<<endl;
+    cin >>id_stasiun;
+    r =findRelasi_4(Lr,Lc,Lp,id_stasiun);
+    deleterelasi_4(Lr,r);
+    deleteParent_4(Lp,p,id_stasiun)
+}
+
 void showParentCocok_4(list_parent L,string asal,string tujuan){
     adr_parent x;
     x = Firstpr(L);
@@ -282,6 +309,7 @@ void editRelasitoCh_4(list_relasi &L,list_child &Lc,list_parent &Lp){
         R = nextr(R);
     }while (R != firstr(L));
 }
+
 
 
 

@@ -57,6 +57,17 @@ void showParent_4(list_parent L){
     }
 }
 
+void showkodestasiun_4(list_parent L){
+    adr_parent x;
+    x = Firstpr(L);
+    while (x != NULL) {
+        cout <<"---data all stasiun---"<<endl;
+        cout<< infopr(x).id_stasiun<<endl;
+        cout<< infopr(x).nama<<endl;
+        cout<<"-------------------"<<endl;
+        x = nextpr(x);
+    }
+}
 
 void deletefirstParent_4(list_parent &L,adr_parent &P){
     if (Firstpr(L)!= NULL){
