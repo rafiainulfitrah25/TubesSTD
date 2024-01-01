@@ -11,30 +11,31 @@ void welcome(){
     cout<<"-------------------------------"<<endl;
     cout<<"____________Made by____________"<<endl;
     cout<<"______Kelompok-4 IF-46-10______"<<endl;
+    cout << "" << endl;
+    cout << "" << endl;
 }
 
 
-void menu1(list_parent &Lp,list_child &Lc,list_relasi &Lr){
+void menu1(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
     int input;
     cout << "1.Tambah stasiun"<<endl;
     cout << "2.Tambah kereta"<<endl;
     cout << "3.Tambah Stasiun untuk kereta"<<endl;
     cin >>input;
     if (input == 1){
-        insertparent_4(Lp);
+        insertParent_4(Lp);
     }else if (input == 2){
-        insertchild_4(Lc);
+        insertChild_4(Lc);
     }else{
-        adr_relasi p;
-        hubungkan_4(Lr,Lc,Lp,p);
+        hubungkan_4(Lr,Lc,Lp);
     }
 }
 
-void menu2(list_parent &Lp,list_child &Lc,list_relasi &Lr){
+void menu2(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
 
 }
 
-void menu3(list_parent &Lp,list_child &Lc,list_relasi &Lr){
+void menu3(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
     int input;
     cout << "1.Edit stasiun kereta"<<endl;
     cout << "2.Edit kereta di stasiun"<<endl;
@@ -46,7 +47,7 @@ void menu3(list_parent &Lp,list_child &Lc,list_relasi &Lr){
     }
 }
 
-void menu4(list_parent &Lp,list_child &Lc,list_relasi &Lr){
+void menu4(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
     int input;
     cout << "1.Show parent"<<endl;
     cout << "2.Show child"<<endl;
@@ -65,7 +66,7 @@ void menu4(list_parent &Lp,list_child &Lc,list_relasi &Lr){
     }
 }
 
-void showmenu(list_parent &Lp,list_child &Lc,list_relasi &Lr,int input){
+void showmenu(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr,int input){
     do{
         cout << "1.Tambahkan Data Command"<<endl;
         cout << "2.Hapus Data Command"<<endl;

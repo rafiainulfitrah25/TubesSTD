@@ -8,11 +8,11 @@ using namespace std;
 
 
 void welcome();
-void showmenu(list_parent &Lp,list_child &Lc,list_relasi &Lr,int input);
-void menu1(list_parent &Lp,list_child &Lc,list_relasi &Lr);
-void menu2(list_parent &Lp,list_child &Lc,list_relasi &Lr);
-void menu3(list_parent &Lp,list_child &Lc,list_relasi &Lr);
-void menu4(list_parent &Lp,list_child &Lc,list_relasi &Lr);
+void showmenu(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr,int input);
+void menu1(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr);
+void menu2(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr);
+void menu3(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr);
+void menu4(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr);
 
 
 #endif // MENU_H_INCLUDED

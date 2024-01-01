@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="child.cpp" />
 		<Unit filename="child.h" />
+		<Unit filename="components.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
@@ -41,6 +42,7 @@
 		<Unit filename="parent.h" />
 		<Unit filename="relasi.cpp" />
 		<Unit filename="relasi.h" />
+		<Unit filename="utils.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

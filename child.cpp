@@ -2,7 +2,7 @@
 #include "child.h"
 using namespace std;
 
-bool isEmptyChild_4(list_child L){
+bool isEmptyChild_4(KeretaList L){
     if (firstch(L) == NULL) {
         return true;
     }else {
@@ -10,21 +10,21 @@ bool isEmptyChild_4(list_child L){
     }
 }
 
-void createListChild_4(list_child &L){
+void createListChild_4(KeretaList &L){
     firstch(L) = NULL;
     lastch(L) = NULL;
 }
 
-adr_child createNewElmtChild_4(infotype_child X){
-    adr_child P;
-    P = new elmt_child;
+KeretaAddress createNewElmtChild_4(KeretaInfoType X){
+    KeretaAddress P;
+    P = new KeretaElement;
     infoch(P) = X;
     nextch(P) = NULL;
     prevch(P) = NULL;
     return P;
 };
 
-void insertLastChild_4(list_child &L, adr_child P) {
+void insertLastChild_4(KeretaList &L, KeretaAddress P) {
     if (isEmptyChild_4(L) == true) {
         firstch(L) = P;
         lastch(L)= P;
@@ -35,23 +35,23 @@ void insertLastChild_4(list_child &L, adr_child P) {
     }
 }
 
-void insertchild_4(list_child &L){
-    infotype_child data;
-    cout<<"masukan id kereta"<<endl;
-    cin>> data.id_kereta;
-    cout<<"masukan nama kereta"<<endl;
-    cin>> data.nama_kereta;
-    cout<<"masukan asal perjalanan"<<endl;
-    cin>> data.asal_perjalanan;
-    cout<<"masukan tujuan perjalanan"<<endl;
-    cin>> data.tujuan_perjalanan;
+void insertChild_4(KeretaList &L){
+    KeretaInfoType data;
+    cout<<"ID : "<<endl;
+    cin>> data.id;
+    cout<<"Nama : "<<endl;
+    cin>> data.nama;
+    cout<<"Keberangkatan : "<<endl;
+    cin>> data.keberangkatan;
+    cout<<"Tujuan : "<<endl;
+    cin>> data.tujuan;
     data.pemberhentian = 0;
-    adr_child P = createNewElmtChild_4(data);
+    KeretaAddress P = createNewElmtChild_4(data);
     insertLastChild_4(L,P);
 }
 
 
-void deletefirstChild_4(list_child &L,adr_child &P){
+void deletefirstChild_4(KeretaList &L,KeretaAddress &P){
     if (nextch(firstch(L)) == NULL) {
         P = firstch(L);
         firstch(L) = NULL;
@@ -64,7 +64,7 @@ void deletefirstChild_4(list_child &L,adr_child &P){
     }
 }
 
-void DeleteAfterChild_4(list_child &L,adr_child prec, adr_child &P){
+void deleteAfterChild_4(KeretaList &L,KeretaAddress prec, KeretaAddress &P){
     P = nextch(prec);
     nextch(prec)= nextch(P);
     prevch(nextch(P)) = prec;
@@ -72,7 +72,7 @@ void DeleteAfterChild_4(list_child &L,adr_child prec, adr_child &P){
     prevch(P) = NULL;
 }
 
-void deleteLastChild_4(list_child &L,adr_child &P){
+void deleteLastChild_4(KeretaList &L,KeretaAddress &P){
     if (nextch(firstch(L)) == NULL) {
         P = firstch(L);
         firstch(L) = NULL;
@@ -85,38 +85,38 @@ void deleteLastChild_4(list_child &L,adr_child &P){
     }
 }
 
-void showChild_4(list_child L){
-    adr_child x;
+void showChild_4(KeretaList L){
+    KeretaAddress x;
     x = firstch(L);
+    cout <<"---data kereta---"<<endl;
     while (x != NULL) {
-        cout <<"---data kereta---"<<endl;
-        cout<< infoch(x).id_kereta<<endl;
-        cout<< infoch(x).nama_kereta<<endl;
-        cout<< infoch(x).asal_perjalanan<<endl;
-        cout<< infoch(x).tujuan_perjalanan<<endl;
+        cout<< infoch(x).id<<endl;
+        cout<< infoch(x).nama<<endl;
+        cout<< infoch(x).keberangkatan<<endl;
+        cout<< infoch(x).tujuan<<endl;
         cout<< infoch(x).pemberhentian<<endl;
         cout<<"-------------------"<<endl;
         x = nextch(x);
     }
 }
 
-void showkodekereta_4(list_child L){
-    adr_child x;
+void showkodekereta_4(KeretaList L){
+    KeretaAddress x;
     x = firstch(L);
+    cout <<"---data kereta---"<<endl;
     while (x != NULL) {
-        cout <<"---data kereta---"<<endl;
-        cout<< infoch(x).id_kereta<<"||";
-        cout<< infoch(x).nama_kereta<<endl;
+        cout<< infoch(x).id<<"||";
+        cout<< infoch(x).nama<<endl;
         cout<<"-------------------"<<endl;
         x = nextch(x);
     }
 }
 
-adr_child searchKereta_4(list_child L,string id_kereta) {
-    adr_child x;
+KeretaAddress searchKereta_4(KeretaList L,string id_kereta) {
+    KeretaAddress x;
     x = firstch(L);
     while (x != NULL){
-        if (infoch(x).id_kereta == id_kereta) {
+        if (infoch(x).id == id_kereta) {
             return x;
         }else {
             x = nextch(x);
@@ -125,18 +125,19 @@ adr_child searchKereta_4(list_child L,string id_kereta) {
     }
 }
 
-void deleteChild_4(list_child &L,adr_child &P,string id_kereta){
-    adr_child x;
+void deleteChild_4(KeretaList &L,KeretaAddress &P,string id_kereta){
+    KeretaAddress x;
     x = searchKereta_4(L,id_kereta);
+    cout << x;
     if (x== firstch(L)){
         deletefirstChild_4(L,P);
     }else if(nextch(x)== NULL){
         deleteLastChild_4(L,P);
     }else{
-        adr_child q;
+        KeretaAddress q;
         while (nextch(q) != x){
             q = nextch(q);
         }
-        DeleteAfterChild_4(L,P,q);
+        deleteAfterChild_4(L,P,q);
     }
 }
