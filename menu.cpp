@@ -15,6 +15,26 @@ void welcome(){
     cout << "" << endl;
 }
 
+void showmenu(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr,int input){
+    do{
+        cout << "1.Tambahkan Data Command"<<endl;
+        cout << "2.Hapus Data Command"<<endl;
+        cout << "3.Edit Relasi Command"<<endl;
+        cout << "4.Info Data Command"<<endl;
+        cout << "0.Exit"<<endl;
+        cin>>input;
+        if (input == 1){
+            menu1(Lp,Lc,Lr);
+        }else if (input == 2){
+            menu2(Lp,Lc,Lr);
+        }else if (input == 3){
+            menu3(Lp,Lc,Lr);
+        }else if (input == 4){
+            menu4(Lp,Lc,Lr);
+        }
+    }while(input != 0);
+}
+
 
 void menu1(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
     int input;
@@ -64,24 +84,4 @@ void menu4(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr){
         cin>>id_stasiun;
         showchildrelasi_4(Lr,Lp,id_stasiun);
     }
-}
-
-void showmenu(StasiunList &Lp,KeretaList &Lc,RelasiList &Lr,int input){
-    do{
-        cout << "1.Tambahkan Data Command"<<endl;
-        cout << "2.Hapus Data Command"<<endl;
-        cout << "3.Edit Relasi Command"<<endl;
-        cout << "4.Info Data Command"<<endl;
-        cout << "0.Exit"<<endl;
-        cin>>input;
-        if (input == 1){
-            menu1(Lp,Lc,Lr);
-        }else if (input == 2){
-            menu2(Lp,Lc,Lr);
-        }else if (input == 3){
-            menu3(Lp,Lc,Lr);
-        }else if (input == 4){
-            menu4(Lp,Lc,Lr);
-        }
-    }while(input != 0);
 }

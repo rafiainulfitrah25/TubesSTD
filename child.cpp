@@ -121,14 +121,13 @@ KeretaAddress searchKereta_4(KeretaList L,string id_kereta) {
         }else {
             x = nextch(x);
         }
-        return NULL;
     }
+    return NULL;
 }
 
 void deleteChild_4(KeretaList &L,KeretaAddress &P,string id_kereta){
     KeretaAddress x;
     x = searchKereta_4(L,id_kereta);
-    cout << x;
     if (x== firstch(L)){
         deletefirstChild_4(L,P);
     }else if(nextch(x)== NULL){

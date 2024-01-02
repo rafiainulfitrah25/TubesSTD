@@ -83,7 +83,7 @@ void deletelastParent_4(StasiunList &L, StasiunAddress &P){
     StasiunAddress Q;
     if (firstpr(L)== NULL){
         cout<<"list kosong"<<endl;
-    }else if(next(firstpr(L))== NULL){
+    }else if(nextpr(firstpr(L))== NULL){
         deletefirstParent_4(L,P);
     }else{
         Q = firstpr(L);
@@ -112,10 +112,10 @@ StasiunAddress searchStasiun_4(StasiunList L,string id_stasiun) {
         if (infopr(x).id == id_stasiun) {
             return x;
         }else {
-            x = next(x);
+            x = nextpr(x);
         }
-        return NULL;
     }
+    return NULL;
 }
 
 void deleteParent_4(StasiunList &L,StasiunAddress &P,string id_stasiun){
