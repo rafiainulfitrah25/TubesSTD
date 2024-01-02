@@ -51,7 +51,7 @@
 1704103014 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\child.h
 	<iostream>
 
-1704174183 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\main.cpp
+1704209520 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\main.cpp
 	<iostream>
 	"relasi.h"
 	"parent.h"
@@ -60,12 +60,12 @@
 	"components.cpp"
 	"utils.cpp"
 
-1704107093 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\relasi.h
+1704209773 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\relasi.h
 	<iostream>
 	"parent.h"
 	"child.h"
 
-1704106995 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\parent.h
+1704209367 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\parent.h
 	<iostream>
 
 1704103014 d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\menu.h
@@ -81,11 +81,11 @@
 	"parent.h"
 	"child.h"
 
-1704174780 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\parent.cpp
+1704209346 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\parent.cpp
 	<iostream>
 	"parent.h"
 
-1704174442 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\relasi.cpp
+1704202943 source:d:\programming_journey\tech stack learning and mastering\language\c++\tubesstd\relasi.cpp
 	<iostream>
 	"relasi.h"
 	"parent.h"

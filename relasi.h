@@ -44,9 +44,8 @@ void showparentrelasi_4(RelasiList L,KeretaList Lc,string id_kereta);
 void editRelasitoPr_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp);
 void editRelasitoCh_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp);
 RelasiAddress findRelasi_4(RelasiList L,KeretaList Lc,StasiunList Lp,string id_stasiun);
-
-
-
+void minpemberhentian_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp,string id_stasiun);
+void mintraffic_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp,string id_kereta);
 
 
 #endif // RELASI_H_INCLUDED

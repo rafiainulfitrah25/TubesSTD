@@ -80,6 +80,7 @@ int main()
 
                     KeretaAddress POut;
                     deleteChild_4(Lc, POut, id);
+                    mintraffic_4(Lr, Lc, Lp, id);
                 }
 
             } break;

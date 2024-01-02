@@ -116,16 +116,18 @@ void deleteRelParent_4(RelasiList &Lr,StasiunList &Lp,KeretaList &Lc){
     showKodeStasiun_4(Lp);
     cout << "Hapus stasiun by ID : ";
     cin >>id_stasiun;
+    minpemberhentian_4(Lr, Lc, Lp, id_stasiun);
+
      r = findRelasi_4(Lr,Lc,Lp,id_stasiun);
-        cout << r << endl;
-     /* do {
+
+     do {
         r = findRelasi_4(Lr,Lc,Lp,id_stasiun);
         cout << r << endl;
         if (r != NULL) {
             deleteRelasi_4(Lr,r);
         }
     } while (r != NULL);
-    */
+
 
     deleteParent_4(Lp,p,id_stasiun);
 }
@@ -150,6 +152,27 @@ void showParentCocok_4(StasiunList L,string asal,string tujuan){
     cout << "---------" <<endl;
 }
 
+void showChildCocok_4(KeretaList L,string destination){
+    KeretaAddress x;
+    x = firstch(L);
+    bool found = false;
+    cout << "-data stasiun-" <<endl;
+    while (x != NULL){
+        if (infoch(x).keberangkatan == destination || infoch(x).tujuan == destination){
+            cout << infoch(x).id <<endl;
+            cout << infoch(x).nama << endl;
+            cout <<infoch(x).keberangkatan<<endl;
+            cout <<infoch(x).tujuan<<endl;
+            found = true;
+        }
+        x = nextch(x);
+    }
+    if (found == false){
+        cout<<"tidak ada yang cocok"<< endl;
+    }
+    cout << "---------" <<endl;
+}
+
 void hubungkan_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
     StasiunAddress Y;
     KeretaAddress X;
@@ -159,7 +182,7 @@ void hubungkan_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
     cin >> id_kereta;
     X = searchKereta_4(Lc,id_kereta);
     if (X != NULL){
-        showParentCocok_4(Lp,infoch(X).keberangkatan,infoch(X).tujuan);
+        showParentCocok_4(Lp, infoch(X).keberangkatan, infoch(X).tujuan);
         cout <<"Pilih Stasiun by ID : " <<endl;
         cin >> id_stasiun;
         Y = searchStasiun_4(Lp,id_stasiun);
@@ -175,6 +198,9 @@ void hubungkan_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
         relasi_child(P) = X;
         relasi_parent(P) = Y;
         insertLastRelasi_4(L,P);
+        infoch(X).pemberhentian++;
+        infopr(Y).traffic++;
+        cout << "Berhasil tambah relasi" << endl;
     }
 }
 
@@ -269,7 +295,7 @@ void showchildrelasi_4(RelasiList L,StasiunList Lp,string id_stasiun){
             cout << "Nama : " <<infoch(relasi_child(Y)).nama << endl;
             cout << "Keberangkatan : " <<infoch(relasi_child(Y)).keberangkatan << endl;
             cout << "Tujuan : " <<infoch(relasi_child(Y)).tujuan << endl;
-            cout << "Pemberhentian : " <<infoch(relasi_child(Y)).pemberhentian < endl;
+            cout << "Pemberhentian : " <<infoch(relasi_child(Y)).pemberhentian << endl;
         }
         Y = nextr(Y);
     }while (Y != firstr(L));
@@ -306,11 +332,11 @@ void editRelasitoPr_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
     if (x != NULL) {
         showparentrelasi_4(L,Lc,id_kereta);
         cout << "pilih stasiun untuk diubah" <<endl;
-        StasiunAddress y = searchStasiun_4 (Lp,stasiun_awal);
         cin >> stasiun_awal;
+        StasiunAddress y = searchStasiun_4(Lp,stasiun_awal);
 
         if (y != NULL) {
-            showParent_4(Lp);
+            showParentCocok_4(Lp, infopr(y).kabkot, infopr(y).kabkot);
             cout <<"inputkan id stasiun baru"<<endl;
             cin >> stasiun_pengganti;
             StasiunAddress P = searchStasiun_4(Lp,stasiun_pengganti);
@@ -341,29 +367,81 @@ void editRelasitoPr_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
 void editRelasitoCh_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp){
     string id_stasiun,kereta_awal,kereta_pengganti;
     cout << "---edit relasi---" <<endl;
+
     showParent_4(Lp);
     cout <<"Pilih stasiun by ID : "<<endl;
     cin>>id_stasiun;
-    showchildrelasi_4(L,Lp,id_stasiun);
-    cout << "pilih kereta untuk diubah by ID : " <<endl;
-    cin >> kereta_awal;
-    showChild_4(Lc);
-    cout <<"inputkan ID kereta baru : "<<endl;
-    cin >> kereta_pengganti;
     StasiunAddress x = searchStasiun_4(Lp,id_stasiun);
-    KeretaAddress y = searchKereta_4 (Lc,kereta_awal);
-    KeretaAddress P = searchKereta_4(Lc,kereta_pengganti);
-    RelasiAddress R;
-    R = firstr(L);
-    do {
-        if (relasi_parent(R) == x && relasi_child(R) == y){
-            relasi_child(R) = P;
+
+    if (x != NULL) {
+         showchildrelasi_4(L,Lp,id_stasiun);
+        cout << "pilih kereta untuk diubah by ID : " <<endl;
+        cin >> kereta_awal;
+        KeretaAddress y = searchKereta_4 (Lc,kereta_awal);
+
+        if (y != NULL) {
+            showChildCocok_4(Lc, infopr(x).kabkot);
+            cout <<"inputkan ID kereta baru : "<<endl;
+            cin >> kereta_pengganti;
+            KeretaAddress P = searchKereta_4(Lc,kereta_pengganti);
+
+            if (P != NULL) {
+                RelasiAddress R;
+                R = firstr(L);
+                do {
+                    if (relasi_parent(R) == x && relasi_child(R) == y){
+                        relasi_child(R) = P;
+                    }
+                    R = nextr(R);
+                }while (R != firstr(L));
+            } else {
+                cout << "Kereta pengganti tidak ada" << endl;
+                utils.waitForNavigation();
+            }
+        } else {
+            cout << "Stasiun tidak ada" << endl;
+            utils.waitForNavigation();
         }
-        R = nextr(R);
-    }while (R != firstr(L));
+
+    } else {
+        cout << "Stasiun tidak ada" << endl;
+        utils.waitForNavigation();
+    }
 }
 
+void minpemberhentian_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp,string id_stasiun){
+    RelasiAddress X;
+    X = firstr(L);
 
+    if (X != NULL) {
+        do {
+            if (infopr(relasi_parent(X)).id == id_stasiun && relasi_child(X) != NULL){
+                infoch(relasi_child(X)).pemberhentian--;
+            }
+            else {
+               X = nextr(X);
+            }
+        }while (X != firstr(L));
+
+    }
+}
+
+void mintraffic_4(RelasiList &L,KeretaList &Lc,StasiunList &Lp,string id_kereta){
+    RelasiAddress X;
+    X = firstr(L);
+
+    if (X != NULL) {
+        do {
+            if (infoch(relasi_child(X)).id == id_kereta && relasi_parent(X) != NULL){
+                infopr(relasi_parent(X)).traffic--;
+            }
+            else {
+               X = nextr(X);
+            }
+        }while (X != firstr(L));
+
+    }
+}
 
 
 
